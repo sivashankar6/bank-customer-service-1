@@ -25,7 +25,8 @@ pipeline {
     }
     stage('Push image') {
       steps {
-        withDockerRegistry([credentialsId: 'dvisanand', url: "https://index.docker.io/v1/"]) {
+        //withDockerRegistry([credentialsId: 'dvisanand', url: "https://index.docker.io/v1/"]) {
+        withDockerRegistry(credentialsId: 'dvishalanand', url: '118463809662.dkr.ecr.ap-south-1.amazonaws.com/visanand') {
           sh '/usr/bin/docker push dvisanand/bank-customer-service:latest'
         }
       }
