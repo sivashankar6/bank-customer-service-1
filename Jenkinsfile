@@ -20,13 +20,13 @@ pipeline {
     }
     stage('Docker Build') {
       steps {
-        sh '/usr/bin/docker build -t satheeshch/bank-customer-service:latest .'
+        sh '/usr/bin/docker build -t dvisanand/bank-customer-service:latest .'
       }
     }
     stage('Push image') {
       steps {
         withDockerRegistry([credentialsId: 'docker-hub', url: "https://index.docker.io/v1/"]) {
-          sh '/usr/bin/docker push satheeshch/bank-customer-service:latest'
+          sh '/usr/bin/docker push dvisanand/bank-customer-service:latest'
         }
       }
     }
