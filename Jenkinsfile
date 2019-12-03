@@ -30,7 +30,7 @@ pipeline {
           //sh '/usr/bin/docker tag bank-customer-service premvallab/firstrepo:latest'
           //sh '/usr/bin/docker push premvallab/firstrepo:latest'
          withDockerRegistry(credentialsId: 'ecr:ap-south-1:myrepo', url: "https://651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo"] {
-          sh 'docker tag premvallab/bank-customer-service:latest 651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest'
+          sh 'docker tag myrepo:latest 651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest'
           sh 'docker push 651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest'
         }
       }
