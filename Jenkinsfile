@@ -32,6 +32,7 @@ pipeline {
          withDockerRegistry(credentialsId: 'ecr:ap-south-1:myrepo', url: "https://651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo") {
           sh 'docker tag myrepo:latest 651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest'
           sh 'docker push 651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest'
+         }
         }
       }
     }
