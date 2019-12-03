@@ -1,8 +1,8 @@
 pipeline {
   agent any
   tools { 
-        maven 'Maven3'
-        jdk 'jdk'
+        maven 'Maven'
+        jdk 'JAVA_HOME'
   }
   stages {
     stage('Clone repository') {
@@ -30,9 +30,9 @@ pipeline {
         //withDockerRegistry(credentialsId: 'premvallab, url: 'http://651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo') {
           //sh '/usr/bin/docker tag bank-customer-service premvallab/firstrepo:latest'
           //sh '/usr/bin/docker push premvallab/firstrepo:latest'
-         withDockerRegistry(credentialsId: 'ecr:ap-south-1:aws-keys-id', url: "651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest") {
-          sh 'docker tag myrepo:latest 651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest'
-          sh 'docker push 651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest'
+         withDockerRegistry(credentialsId: 'ecr:ap-south-1:docker', url: "887625267599.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest") {
+          sh 'docker tag myrepo:latest 887625267599.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest'
+          sh 'docker push 887625267599.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest'
          }
         }
       }
