@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Docker Build') {
       steps {
-        sh '/usr/bin/docker build -t premvallab/bank-customer-service:latest .'
+        sh '/usr/bin/docker build -t premvallab/firstrepo:latest .'
       }
     }
     stage('Push image') {
