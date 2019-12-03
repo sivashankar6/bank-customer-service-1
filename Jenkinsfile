@@ -20,7 +20,8 @@ pipeline {
     }
     stage('Docker Build') {
       steps {
-        sh '/usr/bin/docker build -t bank-customer-service .'
+        //sh '/usr/bin/docker build -t bank-customer-service .'
+        sh '/usr/bin/docker build -t myrepo .'
       }
     }
     stage('Push image') {
