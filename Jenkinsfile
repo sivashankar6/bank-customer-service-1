@@ -26,12 +26,12 @@ pipeline {
     stage('Push image') {
       steps {
         withDockerRegistry([credentialsId: 'premvallab', url: "https://index.docker.io/v1/"]) {
-        withDockerRegistry(credentialsId: 'premvallab, url: 'http://651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo') {
-          sh '/usr/bin/docker tag premvallab/bank-customer-service:latest 651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest'
-          sh '/usr/bin/docker push 651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest'
-         withDockerRegistry(credentialsId: 'premvallab:mycredentials', url: "https://index.docker.io/v2/"] {
-          sh 'docker tag premvallab/bank-customer-service:latest 651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest'
-          sh 'docker push 651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest'
+        //withDockerRegistry(credentialsId: 'premvallab, url: 'http://651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo') {
+          sh '/usr/bin/docker tag premvallab/bank-customer-service:latest'
+          sh '/usr/bin/docker push premvallab/bank-customer-service:latest'
+         //withDockerRegistry(credentialsId: 'premvallab:mycredentials', url: "https://index.docker.io/v2/"] {
+          //sh 'docker tag premvallab/bank-customer-service:latest 651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest'
+          //sh 'docker push 651843681614.dkr.ecr.ap-south-1.amazonaws.com/myrepo:latest'
         }
       }
     }
