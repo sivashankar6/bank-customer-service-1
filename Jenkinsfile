@@ -21,7 +21,7 @@ pipeline {
     stage('Docker Build') {
       steps {
        // sh '/usr/bin/docker build -t sivashankar6/bank-customer-service:latest .'
-        sh '/usr/bin/docker docker build -t bank-customer-service .'
+        sh '/usr/bin/docker docker build -t address-service .'
     }
     }
     stage('Push image') {
