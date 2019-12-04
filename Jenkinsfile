@@ -30,14 +30,16 @@ pipeline {
         //withDockerRegistry(credentialsId: 'sivashankar6', url: 'https://118463809662.dkr.ecr.ap-south-1.amazonaws.com/sivashankar6') {
           //sh '/usr/bin/docker tag 9aea46245759 adapachoshi/bank-customer-service:latest'
           //sh '/usr/bin/docker push adapachoshi/bank-customer-service:latest'
-          docker.withRegistry('https://599916560543.dkr.ecr.us-east-2.amazonaws.com', 'ecr:us-east-2:address-service-ecr-credentials') {
-    docker.image('address-service').push('latest')
-  }
-          sh 'docker tag address-service:latest 599916560543.dkr.ecr.us-east-2.amazonaws.com/address-service:latest'
-          sh 'docker push 599916560543.dkr.ecr.us-east-2.amazonaws.com/address-service:latest'
-        }
+          }
       }
     }
+ 
+  stage ('Docker push') {
+    steps {  
+      docker.withRegistry('https://1234567890.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:address-service-ecr-credentials') {
+       docker.image('address-service').push('latest')
+  }
+}
   }
 
 
