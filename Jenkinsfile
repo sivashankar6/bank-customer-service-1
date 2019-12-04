@@ -21,17 +21,17 @@ pipeline {
     stage('Docker Build') {
       steps {
         sh '/usr/bin/docker build -t sivashankar6/bank-customer-service:latest .'
-      }
+        sh '/usr/bin/docker docker build -t bank-customer-service .'
     }
     stage('Push image') {
       steps {
-        withDockerRegistry([credentialsId: 'adapachoshi', url: "https://index.docker.io/v1/"]) {
+        //withDockerRegistry([credentialsId: 'adapachoshi', url: "https://index.docker.io/v1/"]) {
         //withDockerRegistry(credentialsId: 'sivashankar6', url: 'https://118463809662.dkr.ecr.ap-south-1.amazonaws.com/sivashankar6') {
-          sh '/usr/bin/docker tag 9aea46245759 adapachoshi/bank-customer-service:latest'
-          sh '/usr/bin/docker push adapachoshi/bank-customer-service:latest'
-         //withDockerRegistry(credentialsId: 'ecr:ap-south-1:mycredentials', url: 'http://118463809662.dkr.ecr.ap-south-1.amazonaws.com/myrepo') {
-          //sh 'docker tag sivashankar6/bank-customer-service:latest 118463809662.dkr.ecr.ap-south-1.amazonaws.com/myrepo:v2'
-          //sh 'docker push 118463809662.dkr.ecr.ap-south-1.amazonaws.com/myrepo:v2'
+          //sh '/usr/bin/docker tag 9aea46245759 adapachoshi/bank-customer-service:latest'
+          //sh '/usr/bin/docker push adapachoshi/bank-customer-service:latest'
+          withDockerRegistry(credentialsId: 'ecr:ap-south-1:docker', url: 'http://599916560543.dkr.ecr.ap-south-1.amazonaws.com/address-service') {
+          sh 'docker tag address-service:latest 599916560543.dkr.ecr.us-east-2.amazonaws.com/address-service:latest'
+          sh 'docker push 599916560543.dkr.ecr.us-east-2.amazonaws.com/address-service:latest'
         }
       }
     }
