@@ -30,9 +30,9 @@ pipeline {
         //withDockerRegistry(credentialsId: 'sivashankar6', url: 'https://118463809662.dkr.ecr.ap-south-1.amazonaws.com/sivashankar6') {
           //sh '/usr/bin/docker tag 9aea46245759 adapachoshi/bank-customer-service:latest'
           //sh '/usr/bin/docker push adapachoshi/bank-customer-service:latest'
-         withDockerRegistry(credentialsId: 'ecr:ap-south-1:docker', url: 'http://887625267599.dkr.ecr.ap-south-1.amazonaws.com/address-service') {
-          sh 'docker tag address-service:latest 887625267599.dkr.ecr.ap-south-1.amazonaws.com/address-service:latest'
-          sh 'docker push 887625267599.dkr.ecr.ap-south-1.amazonaws.com/address-service:latest'
+         withDockerRegistry(credentialsId: 'ecr:ap-south-1:address-service', url: 'http://599916560543.dkr.ecr.ap-south-1.amazonaws.com/address-service') {
+          sh 'docker tag address-service:latest 599916560543.dkr.ecr.ap-south-1.amazonaws.com/address-service:latest'
+          sh 'docker push 599916560543.dkr.ecr.ap-south-1.amazonaws.com/address-service:latest'
          }
         }
       }
