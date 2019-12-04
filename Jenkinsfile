@@ -35,7 +35,7 @@ pipeline {
     }
  
   stage 'Docker push'
-      docker.withRegistry('https://1234567890.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:address-service-ecr-credentials') {
+      withdockerRegistry('https://1234567890.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:address-service-ecr-credentials') {
        docker.image('address-service').push('latest')
   }
 }
