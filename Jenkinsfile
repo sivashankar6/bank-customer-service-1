@@ -39,7 +39,7 @@ pipeline {
        docker.image('address-service').push('latest')
   }
 }
-  }
+  
 
 
   
